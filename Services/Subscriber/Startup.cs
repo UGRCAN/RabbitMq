@@ -10,6 +10,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EventBus.Messages.Common;
+using MassTransit;
+using Subscriber.EventBusConsumer;
 
 namespace Subscriber
 {
@@ -25,7 +28,19 @@ namespace Subscriber
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddMassTransit(config =>
+            {
+                config.AddConsumer<SampleConsumer>();
+                config.UsingRabbitMq((ctx, cfg) =>
+                {
+                    cfg.Host(Configuration["EventBusSettings:HostAddress"]);
+                    cfg.ReceiveEndpoint(EventBusConstants.PublishQueue, c =>
+                    {
+                        c.ConfigureConsumer<SampleConsumer>(ctx);
+                    });
+                });
+            });
+            services.AddScoped<SampleConsumer>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

@@ -12,6 +12,9 @@ services:
     container_name: publisher.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+    depends_on:
+    - rabbitmq
     ports:
       - "8000:80"
 
@@ -19,6 +22,9 @@ services:
     container_name: subscriber.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+    depends_on:
+    - rabbitmq
     ports:
       - "8001:80"
 

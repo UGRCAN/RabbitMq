@@ -7,6 +7,7 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["Services/Subscriber/Subscriber.csproj", "Services/Subscriber/"]
+COPY ["BuildingBlocks/EventBus.Messages/EventBus.Messages.csproj", "BuildingBlocks/EventBus.Messages/"]
 RUN dotnet restore "Services/Subscriber/Subscriber.csproj"
 COPY . .
 WORKDIR "/src/Services/Subscriber"

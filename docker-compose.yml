@@ -16,3 +16,10 @@ services:
       context: .
       dockerfile: Services/Subscriber/Dockerfile
 
+
+  ocelotapigw:
+    image: ${DOCKER_REGISTRY-}ocelotapigw
+    build:
+      context: .
+      dockerfile: ApiGateways/OcelotApiGw/Dockerfile
+

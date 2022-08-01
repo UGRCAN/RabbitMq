@@ -29,5 +29,15 @@ namespace Publisher.Controllers
             });
             return Ok();
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            return Ok(new SampleDto
+            {
+                Id = 1,
+                Name = "Test"
+            });
+        }
     }
 }

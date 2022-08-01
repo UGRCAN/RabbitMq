@@ -1,4 +1,4 @@
-# RabbitMqPublishSubscribe
+# MicroService
 Communication of two Rest APIs developed with .Net Core 5.0 with RabbitMQ message queue system
 ### Installing
 Follow these steps to get your development environment set up: (Before Run Start the Docker Desktop)

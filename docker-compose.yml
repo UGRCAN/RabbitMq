@@ -1,6 +1,8 @@
 version: '3.4'
 
 services:
+  portainer:
+    image: portainer/portainer-ce
   rabbitmq:
     image: rabbitmq:3-management-alpine
   
@@ -23,3 +25,5 @@ services:
       context: .
       dockerfile: ApiGateways/OcelotApiGw/Dockerfile
 
+volumes:
+  portainer_data:

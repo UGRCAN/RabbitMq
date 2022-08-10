@@ -25,5 +25,11 @@ services:
       context: .
       dockerfile: ApiGateways/OcelotApiGw/Dockerfile
 
+  aggregator:
+    image: ${DOCKER_REGISTRY-}aggregator
+    build:
+      context: .
+      dockerfile: ApiGateways/Aggregator/Dockerfile
+
 volumes:
   portainer_data:

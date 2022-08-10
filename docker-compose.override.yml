@@ -48,3 +48,16 @@ services:
     ports:
       - "8010:80"
 
+
+  aggregator:
+    container_name: aggregator
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "Apisettings:PublisherUrl=http://publisher.api"
+      - "Apisettings:SubscriberUrl=http://subscriber.api"
+    depends_on:
+      - publisher.api
+      - subscriber.api
+    ports:
+      - "8005:80"
+

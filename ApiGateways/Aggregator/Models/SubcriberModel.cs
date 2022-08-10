@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Publisher.Dtos
+namespace Aggregator.Models
 {
-    public class SampleDto
+    public class PublisherModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

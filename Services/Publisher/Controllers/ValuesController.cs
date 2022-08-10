@@ -20,7 +20,7 @@ namespace Publisher.Controllers
             _publishEndpoint = publishEndpoint;
         }
         [HttpPost]
-        public async Task<IActionResult> PublishMessage([FromBody] SampleDto sampleDto)
+        public async Task<IActionResult> PublishMessage([FromBody] PublisherDto sampleDto)
         {
             await _publishEndpoint.Publish(new PublishEvent
             {
@@ -33,7 +33,7 @@ namespace Publisher.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(new SampleDto
+            return Ok(new PublisherDto
             {
                 Id = 1,
                 Name = "Test"

@@ -1,8 +1,7 @@
 version: '3.4'
 
 services:
-  portainer:
-    image: portainer/portainer-ce
+ 
   rabbitmq:
     image: rabbitmq:3-management-alpine
   
@@ -19,17 +18,7 @@ services:
       dockerfile: Services/Subscriber/Dockerfile
 
 
-  ocelotapigw:
-    image: ${DOCKER_REGISTRY-}ocelotapigw
-    build:
-      context: .
-      dockerfile: ApiGateways/OcelotApiGw/Dockerfile
-
-  aggregator:
-    image: ${DOCKER_REGISTRY-}aggregator
-    build:
-      context: .
-      dockerfile: ApiGateways/Aggregator/Dockerfile
+ 
 
 volumes:
   portainer_data:

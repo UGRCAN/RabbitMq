@@ -14,7 +14,7 @@ namespace Publisher.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private IPublishEndpoint _publishEndpoint;
+        private readonly IPublishEndpoint _publishEndpoint;
         public ValuesController(IPublishEndpoint publishEndpoint)
         {
             _publishEndpoint = publishEndpoint;
